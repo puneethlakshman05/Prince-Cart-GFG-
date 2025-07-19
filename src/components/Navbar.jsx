@@ -27,14 +27,14 @@ export const Navbar = () => {
     }
 
     return (
-        <header className="flex h-[40px]  w-full bg-white text-slate-800  z-10  fixed top-0  items-center shadow-md py-1 px-1 sm:py-2 sm:px-2 md:px-8 md:py-3 lg:py-4 lg:px-10 sm:h-[45px] md:h-[55px] lg:h-[65px] cursor-pointer">
+        <header className="flex h-[45px]  w-full bg-white text-slate-800  z-10  fixed top-0  items-center shadow-md py-2 px-3 sm:py-3 sm:px-4 md:px-8 md:py-3 lg:py-4 lg:px-10 sm:h-[50px] md:h-[55px] lg:h-[65px] cursor-pointer">
             <div>
                 {/* <h1 onClick={() =>navigate('/')} className="text-3xl font-extrabold hover:cursor-pointer">Buy It</h1> */}
                 <img src={logo} alt="logo" className="h-[20px] w-[20px] sm:h-[25px] sm:w-[25px] md:h-[40px] md:w-[40px] lg:h-[45px] lg:w-[50px] " onClick={()=>navigate('/')}/> 
             </div>
-            <nav className="ml-auto flex mr-0 gap-1 sm:gap-3 md:gap-4 lg:gap-5  items-center ">
+            <nav className="ml-auto flex mr-0 gap-3 sm:gap-4 md:gap-5 lg:gap-5  items-center ">
                 <div className="relative ">
-                <span onClick={() => navigate('/cart')} className="material-icons-outlined text-lg sm:text-xl md:text-2xl lg:text-3xl sm:mr-[1px] hover:cursor-pointer text-fuchsia-950">
+                <span onClick={() => navigate('/cart')} className="material-icons-outlined text-xl sm:text-xl md:text-2xl lg:text-3xl sm:mr-[1px] hover:cursor-pointer text-fuchsia-950">
                     shopping_cart
                 </span>
                 {cart.length > 0 &&
@@ -45,7 +45,7 @@ export const Navbar = () => {
 
                 </div>
                 <div className="relative">
-                <span onClick={() => navigate('/wishlist')} className="material-icons-outlined text-lg sm:text-xl md:text-2xl lg:text-3xl hover:cursor-pointer text-fuchsia-950">
+                <span onClick={() => navigate('/wishlist')} className="material-icons-outlined text-xl sm:text-xl md:text-2xl lg:text-3xl hover:cursor-pointer text-fuchsia-950">
                     favorite_border
                 </span>
                  {wishlist.length > 0 &&
@@ -56,7 +56,7 @@ export const Navbar = () => {
 
                 </div>
                 <div className=" relative">
-                <span onClick={() => setIsAccountDropDownOpen(!isAccountDropdownOpen)} className="material-icons-outlined text-lg sm:text-xl md:text-2xl lg:text-3xl hover:cursor-pointer ml-1 text-fuchsia-950">
+                <span onClick={() => setIsAccountDropDownOpen(!isAccountDropdownOpen)} className="material-icons-outlined text-xl sm:text-xl md:text-2xl lg:text-3xl hover:cursor-pointer ml-1 text-fuchsia-950">
                     account_circle
                 </span>
                 {

@@ -11,19 +11,20 @@ export const Cart = () => {
     return (
         <>
             <Navbar />
-            <main className=' flex flex-col items-center pt-20 '>
+            <main className=' flex flex-col items-center  pt-20 '>
                 {
                     cart?.length > 0 ?(
                              <>
                       <h1 className=' font-extrabold text-sm sm:text-xl md:text-2xl lg:text-4xl text-center '>My Cart</h1>
-                      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-[30px] justify-items-center items-start ml-auto  sm:mx-auto md:mx-auto lg:mx-auto max-w-[1200px] px-4'>
+                        <div className='grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-[1200px] w-full px-4 mx-auto'>
                     <div className='pt-4 flex flex-col gap-[20px] mb-[10px] w-full sm:w-auto '>
                         {
                             cart?.length > 0 && cart.map(product => <HorizontalProductCard key={product.id}
                                 product={product} />) 
                         }
                     </div>
-                    <div className='w-full sm:w-auto' >
+                  <div className="w-full sm:w-auto mx-auto sm:mx-0">
+
                         <PriceDetails />
                     </div>
                 </div>
