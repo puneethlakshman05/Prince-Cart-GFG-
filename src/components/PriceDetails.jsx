@@ -1,7 +1,7 @@
 import { useCart } from "../context/cart-context";
 import { getTotalCartPrice } from "../utils/getTotalCartPrice";
 import { useNavigate } from "react-router-dom";
-import {logo} from "../assets/logo.png";
+import logo from "../assets/logo.png";
 export const PriceDetails = () => {
     const { cart } = useCart();
     const navigate = useNavigate(); 
@@ -25,12 +25,12 @@ export const PriceDetails = () => {
         await loadscript("https://checkout.razorpay.com/v1/checkout.js");
 
         const options ={
-            key: "rzp_test_gaehOT9N5xtLxV",
+            key: import.meta.env.VITE_RAZORPAY_KEY,
             amount: (totalCartAmount + deliveryCharge) * 100,
             currency: "INR",
             name: "Prince Cart",
             description: "Thank you for shopping with us",
-            image:{logo},
+            image:logo,
 
 
             handler:({payment_id}) =>{
