@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faWhatsapp, faLinkedinIn, faGithub } from "@fortawesome/free-brands-svg-icons"; 
+import { faWhatsapp, faLinkedinIn, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faCopyright } from '@fortawesome/free-regular-svg-icons';
 
@@ -7,8 +7,9 @@ export const Footer = () => {
     return (
         <>
             <div className="bg-white shadow-xl rounded-3xl px-4 py-6 mx-auto mb-8 max-w-[95%] lg:max-w-[90%] mt-[40px] lg:mt-[90px]">
-                <div className="flex flex-col lg:flex-row justify-between items-start gap-8">
-                    
+                <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start gap-8 text-center lg:text-left">
+
+
                     {/* About Section */}
                     <div className="flex-1 text-center lg:text-left">
                         <h1 className="text-sm sm:text-md md:text-xl lg:text-2xl font-extrabold text-slate-900 mb-2">Prince Cart</h1>
