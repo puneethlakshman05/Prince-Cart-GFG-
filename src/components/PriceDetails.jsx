@@ -50,6 +50,8 @@ export const PriceDetails = () => {
         const paymentObject= new window.Razorpay(options);
         paymentObject.open();
     }
+    console.log("Razorpay Key:", import.meta.env.VITE_RAZORPAY_KEY);
+
     return (
         <>
             <div className="w-[250px] bg-[#fafafa] p-[7px] sm:w-[220px] sm:h-[250px] md:w-[320px] md:h-[280px] lg:w-[400px] lg:h-[300px] mt-[15px]  ">

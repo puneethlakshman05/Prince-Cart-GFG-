@@ -27,7 +27,7 @@ export const Navbar = () => {
     }
 
     return (
-        <header className="flex h-[30px]  w-full bg-white text-slate-800  z-10  fixed top-0  items-center shadow-md py-1 px-1 sm:py-2 sm:px-2 md:px-8 md:py-3 lg:py-4 lg:px-10 sm:h-[40px] md:h-[45px] lg:h-[60px] cursor-pointer">
+        <header className="flex h-[40px]  w-full bg-white text-slate-800  z-10  fixed top-0  items-center shadow-md py-1 px-1 sm:py-2 sm:px-2 md:px-8 md:py-3 lg:py-4 lg:px-10 sm:h-[45px] md:h-[55px] lg:h-[65px] cursor-pointer">
             <div>
                 {/* <h1 onClick={() =>navigate('/')} className="text-3xl font-extrabold hover:cursor-pointer">Buy It</h1> */}
                 <img src={logo} alt="logo" className="h-[20px] w-[20px] sm:h-[25px] sm:w-[25px] md:h-[40px] md:w-[40px] lg:h-[45px] lg:w-[50px] " onClick={()=>navigate('/')}/> 
