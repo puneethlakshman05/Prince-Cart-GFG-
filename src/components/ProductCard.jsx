@@ -1,0 +1,99 @@
+import {useCart} from "../context/cart-context";
+import { findProductInCart } from "../utils/findProductInCart";
+import { useNavigate ,useLocation} from "react-router-dom";
+import { useWishlist } from "../context/wishlist-context";
+import { findProductInWishlist } from "../utils/findProductInWishlist";
+
+export const ProductCard = ({product}) =>{
+    const {cart,cartDispatch} = useCart();
+    const {wishlist,wishlistDispatch} = useWishlist();
+    const navigate = useNavigate();
+    console.log(product)
+    const location = useLocation();
+
+    
+       
+
+const isProductInCart = findProductInCart(cart,product.id)
+const isProductInWishlist = findProductInWishlist(wishlist,product.id)
+const isWishlistPage = location.pathname==='/wishlist';
+
+    const onCartClick = (product) => {
+        if(!isProductInCart ){
+            localStorage.setItem('cart',JSON.stringify([...cart, product]))
+            cartDispatch({
+            type: "ADD_TO_CART",
+            payload: {...product, qty :1}
+        })
+        }
+        else{
+            navigate('/cart')
+            } 
+    }
+
+      const onWishlistClick = (product) => {
+        if(!isProductInWishlist ){
+         localStorage.setItem('wishlist',JSON.stringify([...wishlist, product]))
+            wishlistDispatch({
+            type: "ADD_TO_WISHLIST",
+            payload: product,
+        })
+        }
+        else{
+            navigate('/wishlist')
+            } 
+    }
+
+    const onRemoveFromWishlist = (product) =>{
+        if(isProductInWishlist){
+            const storedWishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            const updatedWishlist = storedWishlist.filter(item => item.id !== product.id);
+            localStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
+            wishlistDispatch({
+                type :'REMOVE_FROM_WISHLIST',
+                payload : product.id
+            })
+        }
+    }
+
+
+    return(
+        <div className="card card-verticalflex flex-col relative shadow w-[200px] text-sm h-[300px] sm:w-[220px] sm:h-[320px] md:w-[220px] md:h-[350px] lg:w-[240px] lg:h-[400px]">
+     <div className="card-image-container h-[120px]  sm:h-[150px] md:h-[180px] lg:h-[200px]">
+          <img className="card-image" src={product.images[0]} alt="shoes" />
+     </div>
+     <div className="card-details ">
+          <div className="card-des line-clamp-2 mb-1 h-[35px] text-xs sm:text-sm md:text-md lg:text-lg ">{product.title}</div>
+          <div className="card-description mt-1 flex flex-col justify-between h-2 sm:h-3 md:h-4 lg:h-5">
+               <p className="card-price mt-0 text-xs font-bold sm:text-sm md:text-md lg:text-lg">
+                  Rs.{product.price}
+               </p>
+          </div>
+          <div className="cta-btn mt-auto flex flex-col justify-center items-center">
+                    <button onClick={() =>
+                         isWishlistPage ? onRemoveFromWishlist(product) : onWishlistClick(product)}
+                          className="button bg-orange-400 hover:bg-orange-600 btn-icon gap-1 flex align-center justify-center 
+                          cursor btn-margin font-bold text-xs px-[6px] py-[5px] sm:text-sm md:text-md lg:text-lg w-auto sm:w-[150px] md:w-[160px] lg:w-[200px]">
+                     <span className="material-icons-outlined text-xs mr-[2px] ml-[2px] sm:text-sm md:text-md lg:text-xl">
+                        { 
+                        isWishlistPage?'delete' : isProductInWishlist ? 'favorite':' favorite_border'
+                        }
+                       </span>
+                       {
+                          isWishlistPage?'Remove ': isProductInWishlist ?'Go to Wishlist' : 'Add To WishList'
+                       }
+                </button>
+
+               <button onClick={() => onCartClick(product)} className="button bg-teal-300 hover:bg-teal-500 btn-icon gap-2 cart-btn flex align-center justify-center  cursor mt-[10px] font-bold text-xs  px-[0px] py-[5px] sm:text-sm md:text-md lg:text-lg">
+                     <span className="material-icons-outlined text-xs mr-[2px] ml-[2px] sm:text-sm md:text-md lg:text-lg">
+                        {
+                            isProductInCart ?  'shopping_cart_checkout':  'shopping_cart'
+                        }
+                        </span>
+                    {isProductInCart ? 'Go To Cart' : 'Add To Cart'}
+               </button>
+          </div>
+     </div>
+</div>
+    )
+}
