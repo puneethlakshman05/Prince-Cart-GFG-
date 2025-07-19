@@ -1,0 +1,1 @@
+export const getTotalCartPrice = (cart) => {return cart?.length > 0 ? cart.reduce((acc,cur)=> acc + cur.price * (cur.qty || 1), 0) : 0;}
