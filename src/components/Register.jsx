@@ -91,7 +91,7 @@ export const Register = () => {
 
     return (
         <div >
-            <form onSubmit={onRegisterSubmit} className="h-[480px] mt-24 flex flex-col justify-evenly p-4 w-[280px] bg-white mb-[40px] sm:w-[300px] sm:h-[460px] md:w-[350px] md:h-[600px] lg:w-[400px] lg:h-[600px] md:mt-[120px] lg:mt-[120px]">  
+            <form onSubmit={onRegisterSubmit} className="h-[480px] mt-24 flex flex-col justify-evenly p-4 w-[280px] bg-white mb-[40px] sm:w-[320px] sm:h-[460px] md:w-[370px] md:h-[600px] lg:w-[400px] lg:h-[600px] md:mt-[120px] lg:mt-[120px]">  
                 <h1 className={`flex justify-center text-xl sm:text-2xl md:text-2xl lg:text-3xl font-extrabold md:mt-2 sm:mt-2 `}>Register</h1>
                 <div className="flex flex-col  mb-3 ">
                     <span className={`text-sm ${styles} sm:mt-3`}>Firstname*</span>
