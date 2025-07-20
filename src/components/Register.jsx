@@ -91,28 +91,28 @@ export const Register = () => {
 
     return (
         <div >
-            <form onSubmit={onRegisterSubmit} className="h-[480px] mt-24 flex flex-col justify-evenly p-4 w-[350px] bg-white mb-[40px] sm:w-[400px] sm:h-[400px] md:w-[350px] md:h-[500px] lg:w-[400px] lg:h-[600px]">  
-                <h1 className={`flex justify-center text-sm sm:text-xl md:text-2xl lg:text-3xl font-extrabold  `}>Register</h1>
+            <form onSubmit={onRegisterSubmit} className="h-[480px] mt-24 flex flex-col justify-evenly p-4 w-[280px] bg-white mb-[40px] sm:w-[300px] sm:h-[460px] md:w-[350px] md:h-[600px] lg:w-[400px] lg:h-[600px] md:mt-[120px] lg:mt-[120px]">  
+                <h1 className={`flex justify-center text-xl sm:text-2xl md:text-2xl lg:text-3xl font-extrabold md:mt-2 sm:mt-2 `}>Register</h1>
                 <div className="flex flex-col  mb-3 ">
-                    <span className={`text-sm ${styles}`}>Firstname*</span>
+                    <span className={`text-sm ${styles} sm:mt-3`}>Firstname*</span>
                     <input  className={`mt-2 focus:outline-none border-b-2 border-gray-300 text-xs focus:border-b-black  ${styles}`} type="text" onChange={onFirstnameChange} placeholder="FirstName" />
                 </div>
                 <div className="flex flex-col  mb-3  ">
-                    <span className={`text-sm ${styles}`}>Lastname*</span>
+                    <span className={`text-sm ${styles} sm:mt-3`}>Lastname*</span>
                     <input  className={`mt-2 focus:outline-none border-b-2 border-gray-300 text-xs  focus:border-b-black ${styles}`} type="text" onChange={onLastnameChange} placeholder="LastName" />
                 </div>
                 <div className="flex flex-col  mb-3 ">
-                    <span className={`text-sm ${styles}`}>Email*</span>
+                    <span className={`text-sm ${styles} sm:mt-3`}>Email*</span>
                     <input  className={`mt-2 focus:outline-none border-b-2 border-gray-300 text-xs focus:border-b-black   ${styles}`} type="email" onChange={onEmailChange} placeholder="Email" />
                 </div>
                 <div className="flex flex-col  mb-3 ">
-                    <span className={`text-sm ${styles}`}>Password*</span>
+                    <span className={`text-sm ${styles} sm:mt-3`}>Password*</span>
                     <div className="relative w-full">
                         <input onChange={onPasswordChange} type={isPasswordEyeOpen ? "password" : "text"} required placeholder="password..." className={` text-xs border-b-2 w-full focus:outline-none focus:border-b-black ${styles}`} />
-                        <button className="absolute right-0 top-2 text-xs text-gray-900 -mr-[3px] cursor-pointer sm:right-0 sm:top-2 md:right-0 md:top-1 lg:right-0 lg:top-1" onClick={() => setIsPasswordEyeOpen(!isPasswordEyeOpen)}>
+                        <button className="absolute right-0 top-1  text-gray-900 -mr-[3px] cursor-pointer sm:right-0 sm:top-1 md:right-0 md:top-1 lg:right-0 lg:top-1" onClick={() => setIsPasswordEyeOpen(!isPasswordEyeOpen)}>
                             {
-                                isPasswordEyeOpen ? <span className={`material-icons-outlined text-xs ${styles}`}>visibility</span>
-                                    : <span className={`material-icons-outlined text-xs ${styles} `}>visibility_off</span>
+                                isPasswordEyeOpen ? <span className={`material-icons-outlined text-sm ${styles}`}>visibility</span>
+                                    : <span className={`material-icons-outlined text-sm ${styles} `}>visibility_off</span>
                             }
 
                         </button>
@@ -120,14 +120,14 @@ export const Register = () => {
                     </div>
                 </div>
                 <div className="flex flex-col  mb-2  ">
-                    <span>Confirm Password*</span>
+                    <span className={`text-sm ${styles} sm:mt-3`}>Confirm Password*</span>
                     <div className="relative w-full">
                         <input className={` text-xs border-b-2 w-full focus:outline-none focus:border-b-black ${styles}`}
                             type={isConfirmPasswordEyeOpen ? "password" : "text"} onChange={onConfirmPasswordChange} placeholder="Confirm password" />
-                        <button className="absolute right-0 top-2 text-xs text-gray-900 -mr-[3px] cursor-pointer sm:right-0 sm:top-2 md:right-0 md:top-1 lg:right-0 lg:top-1" onClick={() => setIsConfirmPasswordEyeOpen(!isConfirmPasswordEyeOpen)}>
+                        <button className="absolute right-0 top-1  text-gray-900 -mr-[3px] cursor-pointer sm:right-0 sm:top-1 md:right-0 md:top-1 lg:right-0 lg:top-1" onClick={() => setIsConfirmPasswordEyeOpen(!isConfirmPasswordEyeOpen)}>
                             {
-                                isConfirmPasswordEyeOpen ? <span className={`material-icons-outlined text-xs ${styles}`}>visibility</span>
-                                    : <span className={`material-icons-outlined text-xs ${styles} `}>visibility_off</span>
+                                isConfirmPasswordEyeOpen ? <span className={`material-icons-outlined text-sm ${styles}`}>visibility</span>
+                                    : <span className={`material-icons-outlined text-sm ${styles} `}>visibility_off</span>
                             }
 
                         </button>
@@ -139,7 +139,7 @@ export const Register = () => {
                     }
                 </div>
                 <div className="flex justify-center items-center">
-                    <button className={`button btn-primary btn-icon cart-btn flex align-center justify-center cursor mt-1 h-[30px] w-[60px] text-xs ${styles} sm:h-[40px] sm:w-[70px] md:w-[80px] md:h-[40px] lg:w-[90px] lg:h-[40px] sm:mt-4 md:mt-5 lg:mt-6 `}>Register</button>
+                    <button className={`button btn-primary btn-icon cart-btn flex align-center justify-center cursor mt-1 h-[40px] w-[90px] text-sm ${styles} sm:h-[40px] sm:w-[80px] md:w-[90px] md:h-[40px] lg:w-[100px] lg:h-[40px] sm:mt-4 md:mt-5 lg:mt-6 `}>Register</button>
                 </div>
 
             </form>

@@ -82,14 +82,14 @@ console.log("value of logged in or registered",isAuthenticated)
 
 
     return(
-        <div className="card card-verticalflex flex-col relative shadow w-[200px] text-sm h-[300px] sm:w-[220px] sm:h-[320px] md:w-[220px] md:h-[350px] lg:w-[240px] lg:h-[400px]">
-     <div className="card-image-container h-[120px]  sm:h-[150px] md:h-[180px] lg:h-[200px]">
+        <div className="card card-verticalflex flex-col relative  shadow w-[285px] text-sm h-[380px] sm:w-[260px] sm:h-[350px] md:w-[235px] md:h-[350px] lg:w-[245px] lg:h-[410px] hover:transition-transform hover:scale-105 cursor-pointer bg-white p-1 rounded-md">
+     <div className="card-image-container h-[180px]  sm:h-[160px] md:h-[160px] lg:h-[200px]">
           <img className="card-image" src={product.images[0]} alt="shoes" />
      </div>
      <div className="card-details ">
-          <div className="card-des line-clamp-2 mb-1 h-[35px] text-xs sm:text-sm md:text-md lg:text-lg ">{product.title}</div>
-          <div className="card-description mt-1 flex flex-col justify-between h-2 sm:h-3 md:h-4 lg:h-5">
-               <p className="card-price mt-0 text-xs font-bold sm:text-sm md:text-md lg:text-lg">
+          <div className="card-des line-clamp-2  h-[35px] text-md sm:text-sm md:text-sm lg:text-md sm:line-clamp-2 md:line-clamp-3  ">{product.title}</div>
+          <div className="card-description mt-2 flex flex-col justify-between h-2 sm:h-3 md:h-4 lg:h-5 mb-1 sm:mb-0 md:mb-0 lg:mb-0">
+               <p className="card-price mt-0 text-sm font-bold sm:text-sm md:text-md lg:text-lg ">
                   Rs.{product.price}
                </p>
           </div>
@@ -97,8 +97,8 @@ console.log("value of logged in or registered",isAuthenticated)
                     <button onClick={() =>
                          isWishlistPage ? onRemoveFromWishlist(product) : onWishlistClick(product)}
                           className="button bg-orange-400 hover:bg-orange-600 btn-icon gap-1 flex align-center justify-center 
-                          cursor btn-margin font-bold text-xs px-[3px] py-[4px] sm:text-sm md:text-md lg:text-lg w-[150px] sm:w-[150px] md:w-[160px] lg:w-[200px]">
-                     <span className="material-icons-outlined text-xs mr-[2px] ml-[2px] sm:text-sm md:text-md lg:text-xl">
+                          cursor btn-margin font-bold text-sm px-[3px] py-[8px] sm:text-sm md:text-md lg:text-md w-[95%] sm:w-[95%] md:w-[95%] lg:w-[95%]">
+                     <span className="material-icons-outlined text-md mr-[2px] ml-[2px] sm:text-sm md:text-md lg:text-xl">
                         { 
                         isWishlistPage?'delete' : isProductInWishlist ? 'favorite':' favorite_border'
                         }
@@ -108,8 +108,8 @@ console.log("value of logged in or registered",isAuthenticated)
                        }
                 </button>
 
-               <button onClick={() => onCartClick(product)} className="button bg-teal-300 hover:bg-teal-500 btn-icon gap-1 cart-btn flex align-center justify-center  cursor mt-[10px] font-bold text-xs  px-[0px] py-[5px] sm:text-sm md:text-md lg:text-lg  w-[150px] sm:w-[150px] md:w-[160px] lg:w-[200px]">
-                     <span className="material-icons-outlined text-xs mr-[2px] ml-[2px] sm:text-sm md:text-md lg:text-lg">
+               <button onClick={() => onCartClick(product)} className="button bg-teal-300 hover:bg-teal-500 btn-icon gap-1 cart-btn flex align-center justify-center  cursor mt-[10px] font-bold text-sm  px-[0px] py-[8px] sm:text-sm md:text-md lg:text-md  w-[95%] sm:w-[95%] md:w-[95%] lg:w-[95%]">
+                     <span className="material-icons-outlined text-md mr-[2px] ml-[2px] sm:text-sm md:text-md lg:text-lg">
                         {
                             isProductInCart ?  'shopping_cart_checkout':  'shopping_cart'
                         }

@@ -6,13 +6,13 @@ import { faCopyright } from '@fortawesome/free-regular-svg-icons';
 export const Footer = () => {
     return (
         <>
-            <div className="bg-white shadow-xl rounded-3xl px-4 py-6 mx-auto mb-8 max-w-[95%] lg:max-w-[90%] mt-[40px] lg:mt-[90px]">
+            <div className="bg-white shadow-xl rounded-3xl px-4 py-6 mx-auto mb-8 max-w-[95%] lg:max-w-[90%] mt-[40px] lg:mt-[70px]">
                 <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start gap-8 text-center lg:text-left">
 
 
                     {/* About Section */}
                     <div className="flex-1 text-center lg:text-left">
-                        <h1 className="text-sm sm:text-md md:text-xl lg:text-2xl font-extrabold text-slate-900 mb-2">Prince Cart</h1>
+                        <h1 className="text-md sm:text-lg md:text-xl lg:text-2xl font-extrabold text-slate-900 mb-2">Prince Cart</h1>
                         <p className="text-xs sm:text-sm md:text-md lg:text-lg text-slate-900">
                             PRINCE CART is an online mini shopping platform. You can purchase anything with ease.<br />
                             A small React app to demonstrate e-commerce functionalities like Cart, Wishlist, Login, and Signup. <br />
