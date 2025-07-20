@@ -10,6 +10,11 @@ export const wishlistReducer = (state,{type,payload}) =>{
                     ...state,
                     wishlist : state.wishlist.filter(product => product.id!==payload)
                 }
+                case "CLEAR_WISHLIST":
+            return {
+                ...state,
+                wishlist: []
+            };
             default:
                 return state;
     }

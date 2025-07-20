@@ -48,7 +48,9 @@ export const Home = () => {
                     <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 w-full mt-6 sm:gap-4 md:gap-6 lg:gap-8 justify-items-center items-start px-4'>
                         {
                             filteredByCategories?.length > 0 ? filteredByCategories.map(product => <ProductCard key={product.id} product={product} />)
-                                : <h2 className='text-center text-sm sm:text-md md:text-lg lg:text-xl'>No Products found,please try with another category</h2>
+                                : <div className='flex items-centerjustify-center text-center'>
+                                 <h2 className=' text-sm sm:text-md md:text-lg lg:text-xl'>No Products found,please try with another category</h2>
+                                 </div>
                         }
                     </div>
                 {/* </div> */}

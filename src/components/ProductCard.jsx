@@ -3,6 +3,8 @@ import { findProductInCart } from "../utils/findProductInCart";
 import { useNavigate ,useLocation} from "react-router-dom";
 import { useWishlist } from "../context/wishlist-context";
 import { findProductInWishlist } from "../utils/findProductInWishlist";
+import { useLogin } from "../context/login-context";
+
 
 export const ProductCard = ({product}) =>{
     const {cart,cartDispatch} = useCart();
@@ -12,20 +14,36 @@ export const ProductCard = ({product}) =>{
     const location = useLocation();
 
     
-       
+const{token} = useLogin();
+ 
+console.log("value of token in product card",token)
+
+ const isAuthenticated = !!token.access_token;   
 
 const isProductInCart = findProductInCart(cart,product.id)
 const isProductInWishlist = findProductInWishlist(wishlist,product.id)
 const isWishlistPage = location.pathname==='/wishlist';
 
-    const onCartClick = (product) => {
+console.log("value of isProductInCart",isProductInCart)
+console.log("value of isProductInWishlist",isProductInWishlist)
+console.log("value of logged in or registered",isAuthenticated)
+
+      
+     const onCartClick = (product) => {
         if(!isProductInCart ){
-            localStorage.setItem('cart',JSON.stringify([...cart, product]))
+            if(!isAuthenticated){
+                navigate('/auth/login')
+            
+                return;
+            }
+            else{
+                   localStorage.setItem('cart',JSON.stringify([...cart, product]))
             cartDispatch({
             type: "ADD_TO_CART",
-            payload: {...product, qty :1}
+            payload: {...product, qty :1} 
         })
-        }
+    }
+    }
         else{
             navigate('/cart')
             } 
@@ -34,10 +52,16 @@ const isWishlistPage = location.pathname==='/wishlist';
       const onWishlistClick = (product) => {
         if(!isProductInWishlist ){
          localStorage.setItem('wishlist',JSON.stringify([...wishlist, product]))
+         if(!isAuthenticated){
+                navigate('/auth/login')
+                return;
+            }
+            else{
             wishlistDispatch({
             type: "ADD_TO_WISHLIST",
             payload: product,
         })
+    }
         }
         else{
             navigate('/wishlist')
@@ -73,7 +97,7 @@ const isWishlistPage = location.pathname==='/wishlist';
                     <button onClick={() =>
                          isWishlistPage ? onRemoveFromWishlist(product) : onWishlistClick(product)}
                           className="button bg-orange-400 hover:bg-orange-600 btn-icon gap-1 flex align-center justify-center 
-                          cursor btn-margin font-bold text-xs px-[6px] py-[5px] sm:text-sm md:text-md lg:text-lg w-auto sm:w-[150px] md:w-[160px] lg:w-[200px]">
+                          cursor btn-margin font-bold text-xs px-[3px] py-[4px] sm:text-sm md:text-md lg:text-lg w-[150px] sm:w-[150px] md:w-[160px] lg:w-[200px]">
                      <span className="material-icons-outlined text-xs mr-[2px] ml-[2px] sm:text-sm md:text-md lg:text-xl">
                         { 
                         isWishlistPage?'delete' : isProductInWishlist ? 'favorite':' favorite_border'
@@ -84,7 +108,7 @@ const isWishlistPage = location.pathname==='/wishlist';
                        }
                 </button>
 
-               <button onClick={() => onCartClick(product)} className="button bg-teal-300 hover:bg-teal-500 btn-icon gap-2 cart-btn flex align-center justify-center  cursor mt-[10px] font-bold text-xs  px-[0px] py-[5px] sm:text-sm md:text-md lg:text-lg">
+               <button onClick={() => onCartClick(product)} className="button bg-teal-300 hover:bg-teal-500 btn-icon gap-1 cart-btn flex align-center justify-center  cursor mt-[10px] font-bold text-xs  px-[0px] py-[5px] sm:text-sm md:text-md lg:text-lg  w-[150px] sm:w-[150px] md:w-[160px] lg:w-[200px]">
                      <span className="material-icons-outlined text-xs mr-[2px] ml-[2px] sm:text-sm md:text-md lg:text-lg">
                         {
                             isProductInCart ?  'shopping_cart_checkout':  'shopping_cart'

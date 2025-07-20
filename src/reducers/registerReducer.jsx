@@ -38,9 +38,9 @@ export const registerReducer = (state,{type,payload}) =>{
                     password: '',
                     confirmpassword: '',
                     token: { access_token: '', refresh_token: '' }
-                }
+                };
             default :
             return state;
-    }
+            }
 
-}
+            }

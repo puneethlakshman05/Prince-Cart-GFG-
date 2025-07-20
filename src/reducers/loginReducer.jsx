@@ -1,28 +1,32 @@
-export const loginReducer = (state,{type,payload}) =>{
-    switch(type){
+
+
+export const loginReducer = (state, { type, payload }) => {
+    switch (type) {
         case 'EMAIL':
-            return{
+            return {
                 ...state,
                 email: payload.value
             }
-           case 'PASSWORD':
-            return{
+        case 'PASSWORD':
+            return {
                 ...state,
                 password: payload.value
             }
-               case 'TOKEN':
-            return{
+        case 'TOKEN':
+            return {
                 ...state,
                 token: payload.token
             }
-            case 'LOGOUT' :
-                return{
-                    ...state,
-                    email : '',
-                    password : '',
-                    token : ''
-                }
-            default:
-                return state
+        case 'LOGOUT':
+            localStorage.removeItem('token');
+            return {
+                email: '',
+                password: '',
+                token: { access_token: '', refresh_token: '' }
+                
+            };
+
+        default:
+            return state
     }
 }

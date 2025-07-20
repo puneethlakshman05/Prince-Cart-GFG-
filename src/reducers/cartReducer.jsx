@@ -34,6 +34,12 @@ export const cartReducer = (state, { type, payload }) => {
                     )
                     .filter(item => item.qty > 0), // removes if qty reaches 0
             };
+        case "CLEAR_CART":
+            return {
+                ...state,
+                cart: []
+            };
+        
 
         default:
             return state;
