@@ -84,7 +84,7 @@ export const ProductCard = ({ product }) => {
     return (
         <div className="card card-verticalflex flex-col relative  shadow w-[290px] text-sm h-[380px] sm:w-[275px] sm:h-[350px] md:w-[245px] md:h-[350px] lg:w-[270px] lg:h-[410px] hover:transition-transform hover:scale-105 cursor-pointer bg-white p-1 rounded-md">
             <div className="card-image-container h-[180px]  sm:h-[160px] md:h-[160px] lg:h-[200px]">
-                <img className="card-image" src={product.image} alt="shoes" />
+                <img className="card-image" src={product.images[0]} alt="shoes" />
             </div>
             <div className="card-details ">
                 <div className="card-des line-clamp-2  h-[35px] text-md sm:text-sm md:text-sm lg:text-md sm:line-clamp-2 md:line-clamp-3  ">{product.title}</div>
